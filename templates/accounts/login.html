@@ -1,0 +1,59 @@
+{% extends 'accounts/base.html' %} {% block heading %} 
+
+Favor, faça login para continuar. 
+
+{% endblock heading %} 
+
+{% block content %}
+
+
+<form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+      {% csrf_token %}
+    
+      <!-- Campo de Email -->
+      <div class="form-floating mb-3">
+        <input
+          type="email"
+          name="username"
+          class="form-control"
+          id="floatingInput"
+          required
+          aria-describedby="emailHelp"
+        />
+        <label for="floatingInput">Endereço de Email</label>
+      </div>
+    
+      <!-- Campo de Senha -->
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="floatingPassword"
+          required
+          aria-describedby="passwordHelp"
+        />
+        <label for="floatingPassword">Senha</label>
+      </div>
+    
+      <!-- Botão de Envio -->
+      <button
+        class="w-100 btn btn-lg btn-primary"
+        type="submit"
+        aria-label="Entrar"
+      >
+        Entrar
+      </button>
+    
+      <hr class="my-4" />
+    
+      <!-- Link de Registro -->
+      <small class="text-muted">
+        Não tem uma conta?
+        <a href="{% url 'register-customer' %}">Cadastre-se</a>
+      </small>
+    </form>
+
+
+{% endblock content %}
+    

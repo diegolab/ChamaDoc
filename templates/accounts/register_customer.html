@@ -1,0 +1,55 @@
+{% extends 'accounts/base.html' %} 
+{% load widget_tweaks %} 
+{% block heading %}
+<div class="text-center mt-4">
+  <h1 class="display-4 fw-bold text-dark">
+    Bem-vindo ao <span class="text-success">ChamaDoc</span>
+  </h1>
+  <p class="lead text-muted">Sistema de Gestão de Chamados e Documentos</p>
+</div>
+{% endblock heading %} {% block content %}
+<form
+  class="p-4 p-md-5 border rounded-3 bg-light"
+  method="POST"
+  style="max-width: 400px; margin: auto"
+>
+  {% csrf_token %}
+
+  <!-- Campo de Email -->
+  <div class="form-floating mb-3">
+    {% render_field form.email class="form-control" %}    
+    <label for="floatingEmail">Email</label>
+  </div>
+
+  <!-- Campo de Senha -->
+  <div class="form-floating mb-3">
+    {% render_field form.password1 class="form-control" %}
+    <label for="floatingPassword1">Crie uma senha</label>
+  </div>
+
+  <!-- Campo de Confirmação de Senha -->
+  <div class="form-floating mb-3">
+    {% render_field form.password2 class="form-control" %}
+    <label for="floatingPassword2">Confirme a senha criada</label>
+  </div>
+
+  <!-- Botão de Envio -->
+  <button
+    class="w-100 btn btn-lg btn-success"
+    type="submit"
+    aria-label="Cadastre-se"
+  >
+    Cadastre-se
+  </button>
+
+  <hr class="my-4" />
+
+  <!-- Link de Login -->
+  <small class="text-muted">
+    Já possui uma conta?
+    <a href="{% url 'login' %}" class="text-success text-decoration-none"
+      >Entrar</a
+    >
+  </small>
+</form>
+{% endblock content %}
